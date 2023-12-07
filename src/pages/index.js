@@ -1,5 +1,3 @@
-// 'use client';
-
 import { useState } from "react"
 import { Book } from "@/components/Book";
 import { AddBookButton } from "@/components/AddBookButton";

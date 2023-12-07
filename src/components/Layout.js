@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const Layout = ({ children }) => {
   return (
     <div className="flex flex-col h-screen bg-slate-600 text-black">
@@ -8,4 +10,8 @@ export const Layout = ({ children }) => {
       </div>
     </div>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node
 }

@@ -1,13 +1,13 @@
 import { addBook, editBook } from "@/actions/actions";
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { DEFAULT_BOOK_FIELDS } from "@/utils/books";
 import { generateUniqueId } from "@/utils/generateUniqueId";
+import PropTypes from "prop-types";
 
 export const BookModal = ({ show, handleClose, book }) => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
   const [formData, setFormData] = useState(DEFAULT_BOOK_FIELDS);
 
   useEffect(() => {
@@ -97,3 +97,9 @@ export const BookModal = ({ show, handleClose, book }) => {
     </Modal>
   );
 };
+
+BookModal.propTypes = {
+  show: PropTypes.bool,
+  handleClose: PropTypes.func,
+  book: PropTypes.object
+}

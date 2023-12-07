@@ -3,18 +3,12 @@ import PropTypes from "prop-types";
 import { TrashCanIcon } from "./Icons";
 import { useDispatch } from "react-redux";
 import { deleteBook } from "@/actions/actions";
-// import { useRouter } from "next/router";
 
 const BOOK_DETAILS_CLASSNAME = "flex items-center text-left"
 
 export const Book = ({ book, handleOnClick }) => {
   const dispatch = useDispatch();
-  // const router = useRouter();
 
-  // const handleOnClick = (e) => {
-  //   e.preventDefault();
-  //   router.push(`/book/${book.id}`);
-  // }
   const handleOnRemove = () => {
     dispatch(deleteBook(book.id));
   }
@@ -39,7 +33,7 @@ export const Book = ({ book, handleOnClick }) => {
           Category: {book.category}
         </div>
         <div className={cx(BOOK_DETAILS_CLASSNAME, "line-clamp-2")}>
-          Category: {book.description}
+          Description: {book.description}
         </div>
       </div>
       <div className="w-1/12" onClick={handleOnRemove}>
@@ -54,4 +48,7 @@ export const Book = ({ book, handleOnClick }) => {
   )
 }
 
-// Book.prop
+Book.propTypes = {
+  book: PropTypes.object,
+  handleOnClick: PropTypes.func
+}
